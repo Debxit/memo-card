@@ -1,0 +1,18 @@
+<form [formGroup]="translateForm" (ngSubmit)="translatePhrase()">
+  <mat-form-field class="example-form-field">
+    <input matInput type="text" formControlName="translateControl" />
+    <button
+      *ngIf="translateForm.value.translateControl"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      type="button"
+      (click)="clearForm()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-icon-button aria-label="Search" type="submit">
+    <mat-icon>search</mat-icon>
+  </button>
+</form>
