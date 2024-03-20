@@ -3,7 +3,12 @@
     <mat-card-content>{{ content }}</mat-card-content>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-raised-button mat-button color="primary">
+    <button
+      mat-raised-button
+      mat-button
+      color="primary"
+      (click)="onAddToCollection()"
+    >
       Add to collection
     </button>
   </mat-card-actions>

@@ -9,7 +9,7 @@ import { TARGET_LANG } from '../app.config';
   providedIn: 'root',
 })
 export class TranslateService {
-  translatedPhrase = new BehaviorSubject<string | null>('');
+  translatedPhrase = new BehaviorSubject<string>('');
   url = 'https://translation.googleapis.com/language/translate/v2?';
 
   constructor(public http: HttpClient) {}
@@ -26,7 +26,7 @@ export class TranslateService {
     return this.http.post<TrandlateRes>(this.url, obj);
   }
 
-  getTranslatedPhrase$(): Observable<string | null> {
+  getTranslatedPhrase$(): Observable<string> {
     return this.translatedPhrase.asObservable();
   }
 }
