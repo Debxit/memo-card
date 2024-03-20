@@ -1,28 +1,20 @@
-import { Injectable } from '@angular/core';
 import {
   HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
+  HttpHandlerFn,
+  HttpInterceptorFn,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
-import { GOOGLEPR, TOKEN } from './config';
+import { GOOGLEPR, TOKEN } from './app.config';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
-
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${TOKEN}`,
-        'x-goog-user-project': GOOGLEPR,
-      },
-    });
-    return next.handle(request);
-  }
-}
+export const authInterceptor: HttpInterceptorFn = (
+  req: HttpRequest<unknown>,
+  next: HttpHandlerFn
+) => {
+  req = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${TOKEN}`,
+      'x-goog-user-project': GOOGLEPR,
+    },
+  });
+  return next(req);
+};

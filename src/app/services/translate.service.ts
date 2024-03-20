@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { TranslateReq, TrandlateRes } from '../models/translate';
-import { TARGET_LANG } from '../config';
+import { TARGET_LANG } from '../app.config';
 
 @Injectable({
   providedIn: 'root',

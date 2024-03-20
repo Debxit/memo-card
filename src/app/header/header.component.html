@@ -1,15 +1,20 @@
 <div class="header-container">
-  <button mat-icon-button color="primary" aria-label="Go to main page">
-    <mat-icon>home</mat-icon>
-  </button>
-  <!-- <button
+  <a
     mat-icon-button
-    color="accent"
-    aria-label="Example icon button with a menu icon"
+    color="primary"
+    aria-label="Go to main page"
+    routerLink="/search"
+    routerLinkActive="active-link"
   >
-    <mat-icon>menu</mat-icon>
-  </button> -->
-  <button mat-icon-button color="warn" aria-label="Go to collection">
+    <mat-icon>home</mat-icon>
+  </a>
+  <a
+    mat-icon-button
+    color="warn"
+    aria-label="Go to collection"
+    routerLink="/train"
+    routerLinkActive="active-link"
+  >
     <mat-icon>favorite</mat-icon>
-  </button>
+  </a>
 </div>
